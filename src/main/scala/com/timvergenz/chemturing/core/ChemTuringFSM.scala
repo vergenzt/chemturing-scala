@@ -1,8 +1,8 @@
 package com.timvergenz.chemturing.core
 
 import akka.actor.Actor
-import akka.actor.FSM
 import akka.actor.ActorSystem
+import akka.actor.FSM
 import akka.actor.Props
 
 sealed trait ChemTuringFSMCommand
@@ -38,4 +38,10 @@ object ChemTuringFSM extends App {
   val system = ActorSystem("ChemTuringSimulationSystem")
   val simulator = system.actorOf(Props(classOf[ChemTuringFSM], initialState), "simulator")
   
+  simulator ! PrintState
+  simulator ! Step(1)
+  simulator ! PrintState
+
+  Thread.sleep(2000)
+  system.shutdown()
 }

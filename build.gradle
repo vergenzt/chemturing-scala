@@ -7,7 +7,10 @@ buildscript {
 
 apply plugin: 'scala'
 apply plugin: 'scalatest'
+apply plugin: 'application'
 apply plugin: 'eclipse'
+
+mainClassName = 'com.timvergenz.chemturing.core.ChemTuringFSM'
 
 test {
   maxParallelForks = 1
