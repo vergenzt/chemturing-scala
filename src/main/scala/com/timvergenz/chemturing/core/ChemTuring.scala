@@ -1,5 +1,8 @@
 package com.timvergenz.chemturing.core
 
+import com.timvergenz.chemturing.util.Util.string2BitSeq
+import com.timvergenz.chemturing.util.Util.char2Bit
+
 /**
  * Represents a single state in time of the chemical operating system.
  *
@@ -21,12 +24,12 @@ package com.timvergenz.chemturing.core
  *   switched
  */
 case class ChemTuringState(
-  val data: Seq[Boolean],
-  val mem: Boolean,
-  val m: Int,
-  val progPtr: Int,
-  val dataPtr: Int,
-  val mode: Mode,
+  val data: Seq[Boolean] = "00000000000000000000",
+  val mem: Boolean = '0',
+  val m: Int = 5,
+  val progPtr: Int = 0,
+  val dataPtr: Int = 0,
+  val mode: Mode = EXEC,
   val prep: Boolean = false) {
 
   // preconditions
@@ -101,9 +104,6 @@ abstract sealed class Operation(val bitSeq: Seq[Boolean])
       data = nextData, mem = nextMem)
   }
 }
-
-// to be able to create Seq[Boolean]s out of Strings
-import com.timvergenz.chemturing.util.Util.string2BitSeq
 
 /**
  * Increments the data pointer by 1

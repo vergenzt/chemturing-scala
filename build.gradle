@@ -1,5 +1,17 @@
+buildscript {
+  repositories.mavenCentral()
+  dependencies {
+    classpath 'com.github.maiflai:gradle-scalatest:0.4'
+  }
+}
+
 apply plugin: 'scala'
+apply plugin: 'scalatest'
 apply plugin: 'eclipse'
+
+test {
+  maxParallelForks = 1
+}
 
 repositories {
   mavenCentral()
@@ -8,5 +20,7 @@ repositories {
 dependencies {
   compile 'org.scala-lang:scala-library:2.10.4'
   compile 'com.typesafe.akka:akka-actor_2.10:2.3.3'
+  testCompile 'org.scalatest:scalatest_2.10:2.2.0'
+  testRuntime 'org.pegdown:pegdown:1.1.0'
 }
 
