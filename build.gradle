@@ -10,7 +10,7 @@ apply plugin: 'scalatest'
 apply plugin: 'application'
 apply plugin: 'eclipse'
 
-mainClassName = 'com.timvergenz.chemturing.core.ChemTuringFSM'
+mainClassName = 'com.timvergenz.chemturing.repl.ChemTuringREPL'
 
 test {
   maxParallelForks = 1
@@ -21,7 +21,9 @@ repositories {
 }
 
 dependencies {
+  compile 'org.scala-lang:scala-compiler:2.10.4'
   compile 'org.scala-lang:scala-library:2.10.4'
+  compile 'org.scala-lang:jline:2.10.4'
   compile 'com.typesafe.akka:akka-actor_2.10:2.3.3'
   testCompile 'org.scalatest:scalatest_2.10:2.2.0'
   testRuntime 'org.pegdown:pegdown:1.1.0'

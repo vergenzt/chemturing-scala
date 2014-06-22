@@ -1,26 +1,25 @@
-package com.timvergenz.chemturing.core
+package com.timvergenz.chemturing.util
 
-import com.timvergenz.chemturing.util.Util.char2Bit
-import com.timvergenz.chemturing.util.Util.string2BitSeq
+import com.timvergenz.chemturing.core._
+import com.timvergenz.chemturing.util.Util._
 
 object StateGenerators {
 
-  import ChemTuring._
-  
   private val DEFAULT_SIZE = 20
 
   /**
    * Generate a blank, empty ChemTuring state.
    */
-  def blankStartState(n: Int = DEFAULT_SIZE): State = {
+  def blankState(n: Int = DEFAULT_SIZE): State = {
     State(
-      data = ("0" * n),
-      mem = '0',
+      data = (1 to n) map (i => bit"0"),
+      mem = bit"0",
       m = 5,
       progPtr = 0,
       dataPtr = 0,
       mode = EXEC,
-      prep = false)
+      prep = bit"0"
+    )
   }
 
   /**

@@ -1,10 +1,9 @@
 package com.timvergenz.chemturing.core
 
+import com.timvergenz.chemturing.util.Util.{BitHelper, BitSeqHelper}
+
 /**
  * Represents a single state in time of the chemical operating system.
- *
- * Preconditions:
- *  - 0 <= progPtr, dataPtr, m < data.size
  *
  * @param data the data bits for this machine, which the operations act upon
  * @param mem the value of the ambient memory bit
@@ -22,31 +21,36 @@ package com.timvergenz.chemturing.core
  */
 case class State(
   val data: Seq[Boolean],
-  val mem: Boolean,
-  val m: Int,
-  val progPtr: Int,
-  val dataPtr: Int,
-  val mode: Mode,
-  val prep: Boolean = false) {
+  val progPtr: Int = 0,
+  val dataPtr: Int = 0,
+  val mem: Boolean = false,
+  val mode: Mode = EXEC,
+  val prep: Boolean = false,
+  val m: Int = 5) {
 
   // preconditions
   assert(0 <= progPtr && progPtr < data.size, "progPtr out of bounds")
   assert(0 <= dataPtr && dataPtr < data.size, "dataPtr out of bounds")
   assert(0 <= m && m < data.size, "m out of bounds")
 
-  override def toString =
-    f"State($data, pp=$progPtr, mem=$mem, dp=$dataPtr, mode=$mode, prep=$prep, m=$m)"
-
   /**
    * Get the next two bits at the program pointer, accounting for wraparound.
    */
-  def nextProgBits: Seq[Boolean] = (data ++ data).slice(progPtr, progPtr + 2)
+  def nextCommand: Seq[Boolean] = (data ++ data).slice(progPtr, progPtr + 2)
 
   /**
    * Get the bit at the data pointer.
    */
   def dataBit: Boolean = data(dataPtr)
 
-  def succ = successor(this)
+  /**
+   * Get the successor to this state found by executing the next operation.
+   */
   def next = successor(this)
+
+  override def toString = {
+    val dataStr = data.toBinaryString
+    val memStr = mem.toBinaryString
+    f"State($dataStr, progPtr=$progPtr%02d, dataPtr=$dataPtr%02d, mem=$memStr, mode=$mode, prep=$prep, m=$m)"
+  }
 }

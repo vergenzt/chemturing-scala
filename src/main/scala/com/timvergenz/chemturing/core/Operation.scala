@@ -20,13 +20,14 @@ abstract sealed class Operation(val bitSeq: Seq[Boolean])
    * `bitSeq` matches the next operation at the program pointer).
    */
   override def isDefinedAt(state: State): Boolean =
-    (state.nextProgBits == bitSeq)
+    (state.nextCommand == bitSeq)
 
   /**
    * Apply this operation. This is the core logic of the ChemTuring operating
    * system.
    */
   override def apply(state: State): State = {
+    val op = this
     val nextPP = (state.progPtr + 2) % state.data.size
     val dataPtrPlus1 = (state.dataPtr + 1) % state.data.size
     val dataPtrPlusM = (state.dataPtr + state.m) % state.data.size
@@ -35,9 +36,9 @@ abstract sealed class Operation(val bitSeq: Seq[Boolean])
 
     // determine mode and prep switch behavior
     val (nextPrep, nextMode) =
-      (this, prep) match {
+      (op, prep) match {
         case (mode.switchFromOp, false) => (true, mode)
-        case (mode.switchFromOp, true) => (false, mode.complement)
+        case (mode.switchFromOp, true) => (false, mode.next)
         case _ => (false, mode)
       }
 
