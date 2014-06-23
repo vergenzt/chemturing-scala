@@ -1,6 +1,7 @@
 package com.timvergenz.chemturing.repl
 
 import scala.tools.nsc.interpreter.ILoop
+import scala.util.Properties.{ jdkHome, javaVersion, versionString, javaVmName }
 import scala.tools.nsc.Settings
 
 class ChemTuringREPLImpl extends ILoop {
@@ -18,16 +19,25 @@ class ChemTuringREPLImpl extends ILoop {
     }
   }
 
-  override def prompt = "==> "
-
   override def printWelcome() {
-    def msg = """
+    echo(s"""
       |Welcome to ChemTuring v3.0!
+      | [Using Scala $versionString on $javaVmName, Java $javaVersion]
+      |Type in expressions to have them evaluated.
+      |Type :help for more information.
       |
-      """
-
-    echo(msg.trim.stripMargin)
+      |The following classes are imported automatically:
+      |  State
+      |  Mode
+      |    EXEC, KILL
+      |  Operation
+      |    READ, WRITE, SKIP, MSKIP
+      |
+      """.trim.stripMargin
+    )
   }
+
+  override def prompt = "==> "
 }
 
 object ChemTuringREPL {
