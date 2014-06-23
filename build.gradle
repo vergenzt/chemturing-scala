@@ -1,7 +1,7 @@
 buildscript {
   repositories.mavenCentral()
   dependencies {
-    classpath 'com.github.maiflai:gradle-scalatest:0.4'
+    classpath 'com.github.maiflai:gradle-scalatest:0.5'
   }
 }
 
@@ -11,10 +11,6 @@ apply plugin: 'application'
 apply plugin: 'eclipse'
 
 mainClassName = 'com.timvergenz.chemturing.repl.ChemTuringREPL'
-
-test {
-  maxParallelForks = 1
-}
 
 repositories {
   mavenCentral()
