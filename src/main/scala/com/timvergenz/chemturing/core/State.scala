@@ -26,12 +26,12 @@ case class State(
   val mem: Boolean = false,
   val mode: Mode = EXEC,
   val prep: Boolean = false,
-  val m: Int = 5) {
+  val m: Int = 1) {
 
   // preconditions
-  assert(0 <= progPtr && progPtr < data.size, "progPtr out of bounds")
-  assert(0 <= dataPtr && dataPtr < data.size, "dataPtr out of bounds")
-  assert(0 <= m && m < data.size, "m out of bounds")
+  require(data.size > 0, "data cannot be empty")
+  require(0 <= progPtr && progPtr < data.size, "progPtr out of bounds")
+  require(0 <= dataPtr && dataPtr < data.size, "dataPtr out of bounds")
 
   /**
    * Get the next two bits at the program pointer, accounting for wraparound.
