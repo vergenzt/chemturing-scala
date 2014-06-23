@@ -4,11 +4,14 @@ buildscript {
     classpath 'com.github.maiflai:gradle-scalatest:0.5'
   }
 }
-
 apply plugin: 'scala'
 apply plugin: 'scalatest'
 apply plugin: 'application'
 apply plugin: 'eclipse'
+
+// name defined in settings.gradle
+group = 'com.timvergenz'
+version = '3.0.0-SNAPSHOT'
 
 mainClassName = 'com.timvergenz.chemturing.repl.ChemTuringREPL'
 
