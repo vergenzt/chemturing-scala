@@ -21,11 +21,16 @@ repositories {
 }
 
 dependencies {
-  compile 'org.scala-lang:scala-compiler:2.10.4'
-  compile 'org.scala-lang:scala-library:2.10.4'
-  compile 'org.scala-lang:jline:2.10.4'
-  compile 'com.typesafe.akka:akka-actor_2.10:2.3.3'
-  testCompile 'org.scalatest:scalatest_2.10:2.2.0'
+  compile 'org.scala-lang:scala-library:2.11.0'
+
+  compile 'com.typesafe.akka:akka-actor_2.11:2.3.3'
+
+  // required for REPL support
+  compile 'org.scala-lang:scala-compiler:2.11.0'
+  compile 'jline:jline:2.11'
+
+  // required for scalatest console support
+  testCompile 'org.scalatest:scalatest_2.11:2.2.0'
   testRuntime 'org.pegdown:pegdown:1.1.0'
 }
 

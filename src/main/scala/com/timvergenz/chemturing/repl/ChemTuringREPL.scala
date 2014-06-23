@@ -4,12 +4,17 @@ import scala.tools.nsc.interpreter.ILoop
 import scala.tools.nsc.Settings
 
 class ChemTuringREPLImpl extends ILoop {
-  addThunk {
-    intp.beQuietDuring {
-      intp.addImports("com.timvergenz.chemturing.core._")
-      intp.addImports("com.timvergenz.chemturing.util._")
-      intp.addImports("com.timvergenz.chemturing.util.StateGenerators._")
-      intp.addImports("com.timvergenz.chemturing.util.Util._")
+
+  override def createInterpreter() = {
+    super.createInterpreter()
+    intp.initialize {
+      intp.beQuietDuring {
+        // initial commands to run for the session
+        intp.interpret("import com.timvergenz.chemturing.core._")
+        intp.interpret("import com.timvergenz.chemturing.util._")
+        intp.interpret("import com.timvergenz.chemturing.util.StateGenerators._")
+        intp.interpret("import com.timvergenz.chemturing.util.Util._")
+      }
     }
   }
 
