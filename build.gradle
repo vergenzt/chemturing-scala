@@ -13,7 +13,7 @@ apply plugin: 'eclipse'
 group = 'com.timvergenz'
 version = '3.0.0-SNAPSHOT'
 
-mainClassName = 'com.timvergenz.chemturing.repl.ChemTuringREPL'
+mainClassName = 'com.timvergenz.chemturing.ui.ChemTuringREPLRunner'
 
 repositories {
   mavenCentral()
