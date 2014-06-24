@@ -3,7 +3,7 @@ package com.timvergenz.chemturing.util
 object Util {
   implicit class BitSeqHelper(bitSeq: Seq[Boolean]) {
     def toBinaryString: String =
-      bitSeq map (if (_) '1' else '0') mkString
+      bitSeq.map(if (_) '1' else '0').mkString
   }
 
   implicit class BitHelper(bit: Boolean) {
