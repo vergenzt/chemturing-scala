@@ -1,6 +1,7 @@
 package com.timvergenz.chemturing.core
 
 import com.timvergenz.chemturing.util.Util.{BitHelper, BitSeqHelper}
+import scala.annotation.tailrec
 
 /**
  * Represents a single state in time of the chemical operating system.
@@ -44,9 +45,22 @@ case class State(
   def dataBit: Boolean = data(dataPtr)
 
   /**
-   * Get the successor to this state found by executing the next operation.
+   * Get the successor to this state by executing the next operation.
    */
-  def next = successor(this)
+  def next: State = next(1)
+
+  /**
+   * Get the descendant of this state found by executing the next operation n times.
+   */
+  def next(n: Int): State =
+    _next(this, n)
+
+  @tailrec
+  private final def _next(acc: State, n: Int): State =
+    if (n <= 0)
+      acc
+    else
+      _next(successor(acc), n-1)
 
   override def toString = {
     val dataStr = data.toBinaryString
