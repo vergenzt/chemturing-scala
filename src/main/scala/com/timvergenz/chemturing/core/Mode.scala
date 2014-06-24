@@ -10,7 +10,7 @@ package com.timvergenz.chemturing.core
  */
 abstract sealed class Mode(val switchFromOp: Operation, _next: => Mode) {
   /*
-   * Note: This craziness with having a by-name parameter _complement and
+   * Note: This craziness with having a by-name parameter _next and
    * assigning it to a lazy val is because EXEC and KILL are mutually self-
    * referential, and one reference ends up being null if you try to
    * instantiate it normally.
