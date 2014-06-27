@@ -24,7 +24,7 @@ dependencies {
 
   // required for REPL support
   compile 'org.scala-lang:scala-compiler:2.11.0'
-  compile 'jline:jline:2.11'
+  compile 'jline:jline:2.12'
 
   // required for scalatest console support
   testCompile 'org.scalatest:scalatest_2.11:2.2.0'
