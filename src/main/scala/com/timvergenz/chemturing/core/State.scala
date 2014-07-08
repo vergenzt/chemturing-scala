@@ -47,20 +47,16 @@ case class State(
   /**
    * Get the successor to this state by executing the next operation.
    */
-  def next: State = next(1)
+  def next: State = successor(this)
 
   /**
    * Get the descendant of this state found by executing the next operation n times.
    */
-  def next(n: Int): State =
-    _next(this, n)
-
-  @tailrec
-  private final def _next(acc: State, n: Int): State =
-    if (n <= 0)
-      acc
-    else
-      _next(successor(acc), n-1)
+  def next(n: Int): State = {
+    var state = this
+    for (i <- Range(0,n)) state = successor(state)
+    state
+  }
 
   override def toString = {
     val dataStr = data.toBinaryString
