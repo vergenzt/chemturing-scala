@@ -13,7 +13,7 @@ apply plugin: 'eclipse'
 group = 'com.timvergenz'
 version = '3.0.0-SNAPSHOT'
 
-mainClassName = 'com.timvergenz.chemturing.ui.ChemTuringREPLRunner'
+mainClassName = 'com.timvergenz.chemturing.ui.ChemTuringGUI'
 
 repositories {
   mavenCentral()
@@ -21,6 +21,9 @@ repositories {
 
 dependencies {
   compile 'org.scala-lang:scala-library:2.10.3'
+
+  // for gui
+  compile 'org.scala-lang:scala-swing:2.10.3'
 
   // required for REPL support
   compile 'org.scala-lang:scala-compiler:2.10.3'
