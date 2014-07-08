@@ -30,7 +30,7 @@ case class State(
   val m: Int = 1) {
 
   // preconditions
-  require(data.size > 0, "data cannot be empty")
+  require(data.size > 0, "data is empty")
   require(0 <= progPtr && progPtr < data.size, "progPtr out of bounds")
   require(0 <= dataPtr && dataPtr < data.size, "dataPtr out of bounds")
 
