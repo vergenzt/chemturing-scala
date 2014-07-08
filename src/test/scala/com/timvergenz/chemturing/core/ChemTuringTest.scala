@@ -2,8 +2,7 @@ package com.timvergenz.chemturing.core
 
 import org.scalatest.FlatSpec
 import org.scalatest.Matchers
-import com.timvergenz.chemturing.util.StateGenerators
-import com.timvergenz.chemturing.util.Util._
+import com.timvergenz.chemturing.util._
 
 class ChemTuringTest extends FlatSpec with Matchers {
 

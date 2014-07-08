@@ -1,7 +1,7 @@
 package com.timvergenz.chemturing.util
 
 import com.timvergenz.chemturing.core._
-import com.timvergenz.chemturing.util.Util._
+import com.timvergenz.chemturing.util._
 
 object StateGenerators {
 

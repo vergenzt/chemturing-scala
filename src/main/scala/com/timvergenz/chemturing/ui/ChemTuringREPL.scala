@@ -7,7 +7,7 @@ import scala.util.Properties.javaVmName
 import scala.util.Properties.versionString
 
 import com.timvergenz.chemturing.core.State
-import com.timvergenz.chemturing.util.Util.BinaryStringHelper
+import com.timvergenz.chemturing.util.BinaryStringHelper
 
 class ChemTuringREPL extends ILoop {
 
