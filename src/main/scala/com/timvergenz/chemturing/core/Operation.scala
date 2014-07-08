@@ -1,6 +1,6 @@
 package com.timvergenz.chemturing.core
 
-import com.timvergenz.chemturing.util.Util._
+import com.timvergenz.chemturing.util._
 
 /**
  * Represents a single operation that can be computed in the machine.

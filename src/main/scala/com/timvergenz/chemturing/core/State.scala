@@ -1,6 +1,6 @@
 package com.timvergenz.chemturing.core
 
-import com.timvergenz.chemturing.util.Util.{BitHelper, BitSeqHelper}
+import com.timvergenz.chemturing.util._
 import scala.annotation.tailrec
 
 /**

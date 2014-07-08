@@ -1,6 +1,7 @@
-package com.timvergenz.chemturing.util
+package com.timvergenz.chemturing
 
-object Util {
+package object util {
+
   implicit class BitSeqHelper(bitSeq: Seq[Boolean]) {
     def toBinaryString: String =
       bitSeq.map(if (_) '1' else '0').mkString
@@ -42,4 +43,5 @@ object Util {
         case e: MatchError => None
       }
   }
+
 }
