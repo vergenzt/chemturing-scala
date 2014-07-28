@@ -44,7 +44,7 @@ abstract sealed class Operation(val bitSeq: Seq[Boolean])
 
     // determine what happens with data, mem, and the data pointer
     val (nextDataPtr, nextMem, nextData) =
-      (this, mode) match {
+      (op, mode) match {
 
         // KILL mode always skips
         case (_, KILL) => (dataPtrPlus1, mem, data)

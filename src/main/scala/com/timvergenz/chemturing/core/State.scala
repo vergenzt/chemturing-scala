@@ -54,7 +54,11 @@ case class State(
    */
   def next(n: Int): State = {
     var state = this
-    for (i <- Range(0,n)) state = successor(state)
+    var i = n
+    while (i > 0) {
+      state = successor(state)
+      i = i-1
+    }
     state
   }
 
