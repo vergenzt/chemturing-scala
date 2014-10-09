@@ -4,33 +4,21 @@ buildscript {
     classpath 'com.github.maiflai:gradle-scalatest:0.5'
   }
 }
-apply plugin: 'scala'
-apply plugin: 'scalatest'
-apply plugin: 'application'
-apply plugin: 'eclipse'
 
 // name defined in settings.gradle
 group = 'com.timvergenz'
 version = '3.0.0-SNAPSHOT'
 
-mainClassName = 'com.timvergenz.chemturing.ui.ChemTuringGUI'
+subprojects {
+  apply plugin: 'scala'
+  apply plugin: 'scalatest'
+  apply plugin: 'eclipse'
 
-repositories {
-  mavenCentral()
-}
-
-dependencies {
-  compile 'org.scala-lang:scala-library:2.10.3'
-
-  // for gui
-  compile 'org.scala-lang:scala-swing:2.10.3'
-
-  // required for REPL support
-  compile 'org.scala-lang:scala-compiler:2.10.3'
-  compile 'jline:jline:2.12'
-
-  // required for scalatest console support
-  testCompile 'org.scalatest:scalatest_2.10:2.2.0'
-  testRuntime 'org.pegdown:pegdown:1.1.0'
+  repositories {
+    mavenCentral()
+  }
+  dependencies {
+    compile 'org.scala-lang:scala-library:2.10.3'
+  }
 }
 

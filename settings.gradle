@@ -1,2 +1,4 @@
 rootProject.name = "chemturing"
 
+include "chemturing-api"
+

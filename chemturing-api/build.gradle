@@ -1,0 +1,17 @@
+apply plugin: 'application'
+
+mainClassName = 'com.timvergenz.chemturing.ui.ChemTuringGUI'
+
+dependencies {
+  // for gui
+  compile 'org.scala-lang:scala-swing:2.10.3'
+
+  // required for REPL support
+  compile 'org.scala-lang:scala-compiler:2.10.3'
+  compile 'jline:jline:2.12'
+
+  // required for scalatest console support
+  testCompile 'org.scalatest:scalatest_2.10:2.2.0'
+  testRuntime 'org.pegdown:pegdown:1.1.0'
+}
+
