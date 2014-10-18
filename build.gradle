@@ -18,10 +18,10 @@ subprojects {
   }
 
   dependencies {
-    compile 'org.scala-lang:scala-library:2.10.3'
+    compile 'org.scala-lang:scala-library:2.11.2'
 
     // required for scalatest console support
-    testCompile 'org.scalatest:scalatest_2.10:2.2.0'
+    testCompile 'org.scalatest:scalatest_2.11:2.2.0'
     testRuntime 'org.pegdown:pegdown:1.1.0'
   }
 }
