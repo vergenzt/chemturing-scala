@@ -5,11 +5,10 @@ buildscript {
   }
 }
 
-// name defined in settings.gradle
-group = 'com.timvergenz'
-version = '3.0.0-SNAPSHOT'
-
 subprojects {
+  group = 'com.timvergenz'
+  version = '3.0.0-SNAPSHOT'
+
   apply plugin: 'scala'
   apply plugin: 'scalatest'
   apply plugin: 'eclipse'
@@ -17,8 +16,13 @@ subprojects {
   repositories {
     mavenCentral()
   }
+
   dependencies {
     compile 'org.scala-lang:scala-library:2.10.3'
+
+    // required for scalatest console support
+    testCompile 'org.scalatest:scalatest_2.10:2.2.0'
+    testRuntime 'org.pegdown:pegdown:1.1.0'
   }
 }
 
