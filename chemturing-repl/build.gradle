@@ -1,5 +1,5 @@
 dependencies {
-  compile project(":chemturing-api")
+  compile project(":chemturing-core")
 
   // required for REPL support
   compile 'org.scala-lang:scala-compiler:2.10.3'
