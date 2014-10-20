@@ -1,8 +1,10 @@
+apply from: "${rootProject.projectDir}/gradle/scala.gradle"
+
 dependencies {
   compile project(":chemturing-core")
 
   // required for REPL support
-  compile 'org.scala-lang:scala-compiler:2.10.3'
-  compile 'jline:jline:2.12'
+  compile "org.scala-lang:scala-compiler:2.10.3"
+  compile "jline:jline:2.12"
 }
 
