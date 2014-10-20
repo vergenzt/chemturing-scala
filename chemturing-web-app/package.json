@@ -1,0 +1,11 @@
+{
+  "name": "chemturing-web",
+  "version": "1.0.0",
+  "description": "Web simulator for the ChemTuring operating system.",
+  "main": "index.js",
+  "author": "Tim Vergenz <vergenzt@gmail.com>",
+  "dependencies": {
+    "jquery": "2.1.1",
+    "react": "0.11.2"
+  }
+}
