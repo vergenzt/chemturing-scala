@@ -1,11 +1,14 @@
 apply plugin: "scala"
 apply plugin: "scalatest"
 
+ext.scalaV = "2.11"
+ext.scalaVPatch = ".2"
+
 dependencies {
-  compile "org.scala-lang:scala-library:2.11.2"
+  compile "org.scala-lang:scala-library:$scalaV$scalaVPatch"
 
   // required for scalatest console support
-  testCompile "org.scalatest:scalatest_2.11:2.2.0"
+  testCompile "org.scalatest:scalatest_$scalaV:2.2.0"
   testRuntime "org.pegdown:pegdown:1.1.0"
 }
 
