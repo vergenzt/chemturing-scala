@@ -2,4 +2,6 @@ rootProject.name = "chemturing"
 
 include "chemturing-core"
 include "chemturing-repl"
+include "chemturing-web-app"
+include "chemturing-web-server"
 
