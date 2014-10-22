@@ -1,6 +1,6 @@
 package com.timvergenz.chemturing.core
 
-import com.timvergenz.chemturing.util._
+import com.timvergenz.chemturing.util.StringInterpolaters._
 import scala.annotation.tailrec
 
 /**

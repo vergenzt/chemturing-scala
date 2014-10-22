@@ -1,6 +1,6 @@
 package com.timvergenz.chemturing.core
 
-import com.timvergenz.chemturing.util._
+import com.timvergenz.chemturing.util.StringInterpolaters._
 
 /**
  * Represents a single operation that can be computed in the machine.

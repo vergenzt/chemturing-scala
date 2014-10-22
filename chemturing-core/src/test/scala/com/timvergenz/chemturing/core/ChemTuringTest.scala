@@ -3,6 +3,7 @@ package com.timvergenz.chemturing.core
 import org.scalatest.FlatSpec
 import org.scalatest.Matchers
 import com.timvergenz.chemturing.util._
+import com.timvergenz.chemturing.util.StringInterpolaters._
 
 class ChemTuringTest extends FlatSpec with Matchers {
 
