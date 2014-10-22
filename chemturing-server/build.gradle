@@ -2,5 +2,16 @@ apply from: "${rootProject.projectDir}/gradle/scala.gradle"
 
 dependencies {
   compile project(":chemturing-core")
+
+  ext.akkaV = "2.3.6"
+  ext.sprayV = "1.3.2"
+
+  compile "com.typesafe.akka:akka-actor_$scalaV:$akkaV"
+  compile "io.spray:spray-can_$scalaV:$sprayV"
+  compile "io.spray:spray-routing_$scalaV:$sprayV"
+
+  testCompile "com.typesafe.akka:akka-testkit_$scalaV:$akkaV"
+  testCompile "io.spray:spray-testkit_$scalaV:$sprayV"
+  testCompile "org.specs2:specs2-core_$scalaV:2.3.11"
 }
 
